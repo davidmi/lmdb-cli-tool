@@ -51,7 +51,15 @@ Reporting Issues: Please create a GitHub Issue with details as to how to reprodu
 Submitting Code: Please create a GitHub pull request\.
 .
 .P
-Please run all code through astyle \-\-style=linux, and conform to the LMDB project style for anything not covered by Astyle\.
+Please install the pre\-commit hook, which does the following:
+.
+.IP "1." 4
+Runs all code through astyle \-\-style=linux\. Please conform to the LMDB project style for anything not covered by Astyle\.
+.
+.IP "2." 4
+Generates and commit the man page (mdbx\.1) using the ruby\-ronn tool
+.
+.IP "" 0
 .
 .P
 All code submissions require a corresponding test, and must pass all existing tests\.

@@ -37,8 +37,12 @@ to reproduce your issue.
 
 Submitting Code: Please create a GitHub pull request.
 
-Please run all code through astyle --style=linux, and conform
+Please install the pre-commit hook, which does the following:
+
+1. Runs all code through astyle --style=linux. Please conform
 to the LMDB project style for anything not covered by Astyle.
+
+2. Generates and commit the man page (mdbx.1) using the ruby-ronn tool
 
 All code submissions require a corresponding test, and must pass all existing
 tests.
