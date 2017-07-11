@@ -1,0 +1,6 @@
+#!/bin/sh
+set -xe
+astyle --style=linux *.c *.h
+git add *.c *.h
+cat README | ronn > mdbx.1
+git add mdbx.1

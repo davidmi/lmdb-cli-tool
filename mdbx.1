@@ -1,0 +1,57 @@
+.\" generated with Ronn/v0.7.3
+.\" http://github.com/rtomayko/ronn/tree/0.7.3
+.
+.TH "MDBX" "1" "July 2017" "" ""
+.
+.SH "NAME"
+\fBmdbx\fR \- LMDB Explorer
+.
+.SH "SYNOPSIS"
+\fBmdbx\fR ACTION [OPTION [ARG] [OPTION [ARG] \.\.\.]] \fIlmdb env path\fR
+.
+.br
+ACTIONS p|print a|printall w|write d|delete h|help
+.
+.br
+\fB\-d\fR|\fB\-\-db\-name\fR \fIname\fR
+.
+.br
+\fB\-k\fR|\fB\-\-key\fR \fIkey\fR \-\- string key, required for print
+.
+.br
+\fB\-N\fR|\fB\-\-num\-data\fR \-\- print/input data as number
+.
+.br
+\fB\-n\fR|\fB\-\-num\-key\fR \-\- input key as number
+.
+.br
+\fB\-X\fR|\fB\-\-hex\-data\fR \-\- print/input data as number
+.
+.br
+\fB\-x\fR|\fB\-\-hex\-key\fR \-\- input key as number)
+.
+.br
+.
+.SH "DESCRIPTION"
+Command\-line tool for inspecting the contents of (LMDB)[http://www\.lmdb\.tech/doc/] databases\.
+.
+.SH "COMPILING"
+Requires \fBpkg\-config\fR, \fBgetopt\fR, and \fBliblmdb\fR\. Run \fBmake\fR to compile\.
+.
+.P
+To install, run \fBmake install\fR\. Requires \fBruby\-ronn\fR to build the man page\.
+.
+.SH "TESTS"
+Requires \fBcheck\fR\. Run \fBmake test\fR to compile\. \fB\./test\fR to run tests\.
+.
+.SH "CONTRIBUTING"
+Reporting Issues: Please create a GitHub Issue with details as to how to reproduce your issue\.
+.
+.P
+Submitting Code: Please create a GitHub pull request\.
+.
+.P
+Please run all code through astyle \-\-style=linux, and conform to the LMDB project style for anything not covered by Astyle\.
+.
+.P
+All code submissions require a corresponding test, and must pass all existing tests\.

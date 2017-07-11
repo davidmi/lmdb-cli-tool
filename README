@@ -1,0 +1,44 @@
+mdbx(1) -- LMDB Explorer
+====
+
+## SYNOPSIS
+
+`mdbx` ACTION [OPTION [ARG] [OPTION [ARG] ...]]  <lmdb env path><br>
+ACTIONS p|print a|printall w|write  d|delete h|help<br>
+`-d`|`--db-name` <name><br>
+`-k`|`--key` <key> -- string key, required for print<br>
+`-N`|`--num-data` -- print/input data as number<br>
+`-n`|`--num-key`  -- input key as number<br>
+`-X`|`--hex-data` -- print/input data as number<br>
+`-x`|`--hex-key`  -- input key as number)<br>
+
+## DESCRIPTION
+
+Command-line tool for inspecting the contents of
+(LMDB)[http://www.lmdb.tech/doc/] databases.
+
+## COMPILING
+
+Requires `pkg-config`, `getopt`, and `liblmdb`.
+Run `make` to compile.
+
+To install, run `make install`. Requires `ruby-ronn` to build the man page.
+
+## TESTS
+
+Requires `check`.
+Run `make test` to compile.
+`./test` to run tests.
+
+## CONTRIBUTING
+
+Reporting Issues: Please create a GitHub Issue with details as to how
+to reproduce your issue.
+
+Submitting Code: Please create a GitHub pull request.
+
+Please run all code through astyle --style=linux, and conform
+to the LMDB project style for anything not covered by Astyle.
+
+All code submissions require a corresponding test, and must pass all existing
+tests.
