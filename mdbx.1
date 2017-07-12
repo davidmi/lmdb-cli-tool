@@ -186,7 +186,20 @@ Write a value with a 32\-bit integer key:
 .
 .nf
 
-\&\./mdbx w \-xk a0f0a1 \-Xv 0a120b DB_DIR
+\&\./mdbx w \-nk 123 \-v bar DB_DIR
+.
+.fi
+.
+.IP "" 0
+.
+.P
+Write a 32\-bit integer value:
+.
+.IP "" 4
+.
+.nf
+
+\&\./mdbx w \-k foo \-Nv bar DB_DIR
 .
 .fi
 .

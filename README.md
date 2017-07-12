@@ -83,7 +83,11 @@ Write a value with a binary value encoded as hex:
 
 Write a value with a 32-bit integer key: 
 
-    ./mdbx w -xk a0f0a1 -Xv 0a120b DB_DIR
+    ./mdbx w -nk 123 -v bar DB_DIR
+
+Write a 32-bit integer value: 
+
+    ./mdbx w -k foo -Nv bar DB_DIR
 
 ## CONTRIBUTING
 
