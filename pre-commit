@@ -2,5 +2,5 @@
 set -xe
 astyle --style=linux *.c *.h
 git add *.c *.h
-cat README | ronn > mdbx.1
+cat README.md | ronn > mdbx.1
 git add mdbx.1

@@ -33,7 +33,10 @@ ACTIONS p|print a|printall w|write d|delete h|help
 .br
 .
 .SH "DESCRIPTION"
-Command\-line tool for inspecting the contents of (LMDB)[http://www\.lmdb\.tech/doc/] databases\.
+Command\-line tool for inspecting and editing the contents of (LMDB)[http://www\.lmdb\.tech/doc/] databases\.
+.
+.P
+The default mode of operation is to interpret keys and values as ASCII strings\. Using the \-N, \-n, \-x, and \-X flags, they can be coded as 32\-bit integers or hex values\.
 .
 .SH "COMPILING"
 Requires \fBpkg\-config\fR, \fBgetopt\fR, and \fBliblmdb\fR\. Run \fBmake\fR to compile\.
@@ -43,6 +46,151 @@ To install, run \fBmake install\fR\. Requires \fBruby\-ronn\fR to build the man 
 .
 .SH "TESTS"
 Requires \fBcheck\fR\. Run \fBmake test\fR to compile\. \fB\./test\fR to run tests\.
+.
+.SH "EXAMPLES"
+.
+.SS "Inspecting data"
+List all databases:
+.
+.IP "" 4
+.
+.nf
+
+\&\./mdbx p DB_DIR
+.
+.fi
+.
+.IP "" 0
+.
+.P
+Print a value decoded as a string:
+.
+.IP "" 4
+.
+.nf
+
+\&\./mdbx p \-k foo DB_DIR
+.
+.fi
+.
+.IP "" 0
+.
+.P
+Print a value decoded as a 32\-bit integer:
+.
+.IP "" 4
+.
+.nf
+
+\&\./mdbx p \-N \-k foo DB_DIR
+.
+.fi
+.
+.IP "" 0
+.
+.P
+Print a value using a 32\-bit integer key:
+.
+.IP "" 4
+.
+.nf
+
+\&\./mdbx p \-nk 123 DB_DIR
+.
+.fi
+.
+.IP "" 0
+.
+.P
+Print a value decoded as hex:
+.
+.IP "" 4
+.
+.nf
+
+\&\./mdbx p \-X \-k foo DB_DIR
+.
+.fi
+.
+.IP "" 0
+.
+.P
+Print a value using a key encoded as hex:
+.
+.IP "" 4
+.
+.nf
+
+\&\./mdbx p \-X \-k a0f0a1 DB_DIR
+.
+.fi
+.
+.IP "" 0
+.
+.SS "Editing data"
+Write a value (this creates a new database if there isn\'t one at the location already):
+.
+.IP "" 4
+.
+.nf
+
+\&\./mdbx w \-k foo \-v bar DB_DIR
+.
+.fi
+.
+.IP "" 0
+.
+.P
+Write a value to a named database (this creates the :
+.
+.IP "" 4
+.
+.nf
+
+\&\./mdbx w \-d somename \-k foo \-v bar DB_DIR
+.
+.fi
+.
+.IP "" 0
+.
+.P
+Write a value with a binary key encoded as hex:
+.
+.IP "" 4
+.
+.nf
+
+\&\./mdbx w \-xk a0f0a1 \-v bar DB_DIR
+.
+.fi
+.
+.IP "" 0
+.
+.P
+Write a value with a binary value encoded as hex:
+.
+.IP "" 4
+.
+.nf
+
+\&\./mdbx w \-xk a0f0a1 \-Xv 0a120b DB_DIR
+.
+.fi
+.
+.IP "" 0
+.
+.P
+Write a value with a 32\-bit integer key:
+.
+.IP "" 4
+.
+.nf
+
+\&\./mdbx w \-xk a0f0a1 \-Xv 0a120b DB_DIR
+.
+.fi
+.
+.IP "" 0
 .
 .SH "CONTRIBUTING"
 Reporting Issues: Please create a GitHub Issue with details as to how to reproduce your issue\.
